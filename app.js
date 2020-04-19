@@ -1,8 +1,8 @@
 function Stopwatch() {
   let duration = 0;
   let activeState = false;
-  let timer = function() {};
-  const counter = function() {
+  let timer = () => {};
+  const counter = () => {
     if (!activeState) {
       clearInterval(timer);
     } else {
@@ -34,3 +34,10 @@ function Stopwatch() {
     }
   });
 }
+let sw = new Stopwatch();
+let display = document.getElementById("stopwatch-display");
+const updateTimer = () => {
+  let t = setTimeout(updateTimer,10);
+  display.textContent = sw.duration.toFixed(2) + " seconds";
+}
+window.onload = updateTimer();
