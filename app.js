@@ -49,11 +49,11 @@ const updateTimer = () => {
   let hours = Math.floor(s / 3600) || 0;
   let minutes = Math.floor((s % 3600) / 60) || 0;
   let seconds = (s % 3600) % 60 || 0;
-  let decimals = (sw.duration - s).toFixed(2).slice(2);
+  let milliseconds = (sw.duration - s).toFixed(2).slice(2);
   hours = formatTime(hours);
   minutes = formatTime(minutes);
   seconds = formatTime(seconds);
   display.textContent = hours + " : " + minutes + " : " + seconds;
-  milli.textContent = " . " + decimals;
+  milli.textContent = " . " + milliseconds;
 }
 window.onload = updateTimer();
