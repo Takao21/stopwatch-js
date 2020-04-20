@@ -6,7 +6,12 @@
   </head>
   <body>
     <div id="main-display">
-      <span id="stopwatch-display"></span>
+      <span id="stopwatch-display"></span><span id="milli-display"></span>
+    </div>
+    <div id="button-container">
+      <button type="button" name="start-btn" onclick="sw.start()">Start</button>
+      <button type="button" name="stop-btn" onclick="sw.stop()">Stop</button>
+      <button type="button" name="reset-btn" onclick="sw.reset()">Reset</button>
     </div>
   </body>
   <script type="text/javascript" src="app.js"></script>

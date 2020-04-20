@@ -36,8 +36,24 @@ function Stopwatch() {
 }
 let sw = new Stopwatch();
 let display = document.getElementById("stopwatch-display");
+let milli = document.getElementById("milli-display");
+const formatTime = (i) => {
+  if (i < 10) {
+    i = "0" + i;
+  };
+  return i;
+};
 const updateTimer = () => {
-  let t = setTimeout(updateTimer,10);
-  display.textContent = sw.duration.toFixed(2) + " seconds";
+  let t = setTimeout(updateTimer, 10);
+  let s = Math.floor(sw.duration);
+  let hours = Math.floor(s / 3600) || 0;
+  let minutes = Math.floor((s % 3600) / 60) || 0;
+  let seconds = (s % 3600) % 60 || 0;
+  let decimals = (sw.duration - s).toFixed(2).slice(2);
+  hours = formatTime(hours);
+  minutes = formatTime(minutes);
+  seconds = formatTime(seconds);
+  display.textContent = hours + " : " + minutes + " : " + seconds;
+  milli.textContent = " . " + decimals;
 }
 window.onload = updateTimer();
