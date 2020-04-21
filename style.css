@@ -27,7 +27,7 @@ body {
 
 #wrapper {
   display: block;
-  width: 75%;
+  width: 55%;
   position: absolute;
   background-color: #fff;
   padding: 2em;
@@ -94,4 +94,38 @@ footer {
   bottom: 0;
   margin: 1em;
   line-height: 1.5em;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1280px) {
+  #wrapper {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 580px) {
+  #main-display {
+    font-size: 2.1em;
+  }
+  button {
+    padding: 1.5em 1.2em;
+    border-radius: 1.5em 0.3em;
+  }
+}
+@media screen and (max-width: 390px) {
+  body {
+    font-size: 90%;
+  }
+
+  #main-title {
+    letter-spacing: normal;
+  }
+}
+@media screen and (max-width: 360px) {
+  body {
+    font-size: 88%;
+  }
+
+  #wrapper {
+    width: 90%;
+  }
 }
