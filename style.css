@@ -27,6 +27,7 @@ body {
 
 #wrapper {
   display: block;
+  width: 75%;
   position: absolute;
   background-color: #fff;
   padding: 2em;
@@ -71,10 +72,12 @@ button[name="start-btn"] {
 
 button[name="stop-btn"] {
   background-color: #f05e48;
+  display: none;
 }
 
 button[name="reset-btn"] {
   background-color: #000;
+  display: none;
 }
 
 #button-container {

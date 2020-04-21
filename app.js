@@ -28,18 +28,32 @@ function Stopwatch() {
   this.reset = () => {
     duration = 0;
   };
-  Object.defineProperty(this, "duration", {
-    get: function() {
-      return duration;
-    }
+  Object.defineProperties(this, {
+    duration: {
+      get: function() {
+        return duration;
+      }
+    },
+    state: {
+      get: function() {
+        return activeState;
+      }
+    },
   });
+
 }
 let sw = new Stopwatch();
 let display = document.getElementById("stopwatch-display");
 let milli = document.getElementById("milli-display");
+// Grouped onload functions
+const onloadFunctions = () => {
+  updateTimer();
+  updateButton();
+}
+
 const formatTime = (i) => {
   if (i < 10) {
-    i = "0" + i;
+    i = "0" + i;  // Adding zero in front of values < 10
   };
   return i;
 };
@@ -56,4 +70,21 @@ const updateTimer = () => {
   display.textContent = hours + " : " + minutes + " : " + seconds;
   milli.textContent = " . " + milliseconds;
 }
-window.onload = updateTimer();
+const updateButton = () => {
+  let b = setTimeout(updateButton,10);
+  let startbtn = document.getElementById("start-btn");
+  let stopbtn = document.getElementById("stop-btn");
+  let resetbtn = document.getElementById("reset-btn");
+  let state = sw.state;
+  if (state) {
+    startbtn.style = "display: none;"
+    stopbtn.style = "display: inline-block;"
+    resetbtn.style = "display: none;"
+  }
+  else {
+    stopbtn.style = "display: none;"
+    resetbtn.style = "display: inline-block;"
+    startbtn.style = "display: inline-block;"
+  }
+}
+window.onload = onloadFunctions();
